@@ -1,15 +1,10 @@
-# Use an official Tomcat image with JDK
 FROM tomcat:9.0-jdk17
 
-# Remove default web apps (optional but cleaner)
+# Clean existing apps
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copy your WAR file into Tomcat's webapps directory
+# Copy your WAR
 COPY webapp.war /usr/local/tomcat/webapps/ROOT.war
 
-# Expose port (default Tomcat port)
 EXPOSE 8080
-
-# Start Tomcat
 CMD ["catalina.sh", "run"]
-
