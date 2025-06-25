@@ -1,11 +1,14 @@
-FROM tomcat:9.0-jdk17
+# Use Tomcat 10.1 with JDK 17 as the base image
+FROM tomcat:10.1-jdk17
 
-# Clean existing apps
-RUN rm -rf /usr/local/tomcat/webapps/*
+# Set the working directory to Tomcat's webapps directory
+WORKDIR /usr/local/tomcat/webapps/
 
-# Copy your WAR
-COPY target/webapp.war /usr/local/tomcat/webapps/ROOT.war
+# Copy the WAR file into the webapps directory
+COPY webapp/target/webapp.war /usr/local/tomcat/webapps/webapp.war
 
-
+# Expose port 8080
 EXPOSE 8080
-CMD ["catalina.sh", "run"]
+
+# Run Tomcat
+CMD ["catalina.sh", "run"]
