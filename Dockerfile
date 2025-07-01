@@ -4,10 +4,10 @@ FROM tomcat:10.1-jdk17
 # Set the working directory inside the container
 WORKDIR /usr/local/tomcat/webapps/
 
-# Copy the WAR file built from the webapp module
+# Copy the WAR file from webapp module
 COPY webapp/target/webapp.war ./webapp.war
 
-# Expose port 8080 for web access
+# Expose port 8080
 EXPOSE 8080
 
 # Run Tomcat
