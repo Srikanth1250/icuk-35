@@ -3,7 +3,7 @@ FROM tomcat:10.1-jdk17
 
 # Set the working directory to Tomcat's webapps directory
 WORKDIR /usr/local/tomcat/webapps/
-COPY target/webapp.war /usr/local/tomcat/webapps/
+COPY webapp/target/webapp.war /usr/local/tomcat/webapps/
 EXPOSE 8080
 
 # Copy the WAR file into the webapps directory
