@@ -4,11 +4,11 @@ FROM tomcat:10.1-jdk17
 # Set the working directory to Tomcat's webapps directory
 WORKDIR /usr/local/tomcat/webapps/
 
-# Copy the WAR file into the Tomcat webapps directory
-COPY webapp/target/webapp.war ./webapp.war
+# Copy the WAR file from the webapp module into the Tomcat webapps directory
+COPY webapp/target/webapp.war webapp.war
 
 # Expose port 8080
 EXPOSE 8080
 
-# Run Tomcat
+# Start Tomcat
 CMD ["catalina.sh", "run"]
