@@ -1,14 +1,13 @@
-# Use Tomcat 10.1 with JDK 17 as the base image
+# Use Tomcat base image with JDK 17
 FROM tomcat:10.1-jdk17
 
-# Set the working directory inside the container
+# Set working directory inside the container to Tomcat webapps folder
 WORKDIR /usr/local/tomcat/webapps/
 
-# Copy the WAR file from webapp module
+# Copy the WAR file from your local build context into the Tomcat webapps directory
 COPY webapp/target/webapp.war ./webapp.war
 
-# Expose port 8080
+# Expose port 8080 for web access
 EXPOSE 8080
 
-# Run Tomcat
-CMD ["catalina.sh", "run"]
+# Default command (Tomcat starts automatically)
