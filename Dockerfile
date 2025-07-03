@@ -1,11 +1,11 @@
-# Use official Tomcat image with JDK 17
+# Use official Tomcat image
 FROM tomcat:10.1-jdk17
 
-# Clean default webapps
+# Clean default apps
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copy the WAR file into Tomcat
+# Copy WAR into Tomcat
 COPY webapp/target/webapp.war /usr/local/tomcat/webapps/ROOT.war
 
-# Expose Tomcat's port
+# Expose Tomcat port
 EXPOSE 8080
