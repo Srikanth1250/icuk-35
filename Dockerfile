@@ -1,12 +1,13 @@
-# Use official Tomcat base image with JDK 17
+# Use official Tomcat image with JDK 17
 FROM tomcat:10.1-jdk17
 
-# Set working directory to Tomcat webapps folder
-WORKDIR /usr/local/tomcat/webapps/
+# Clean default Tomcat webapps to avoid conflicts
+RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copy WAR as ROOT.war so it runs at http://localhost:8080/
-COPY webapp/target/webapp.war ./ROOT.war
+# Copy WAR file into the container as ROOT.war
+COPY webapp/target/webapp.war /usr/local/tomcat/webapps/ROOT.war
 
-# Expose default Tomcat port
+# Expose port 8080
 EXPOSE 8080
 
+# Start Tomcat (inherited from base image)
