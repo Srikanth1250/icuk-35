@@ -12,7 +12,6 @@
 
   <name>Maven Project</name>
   <description>Sample Maven multi-module project.</description>
-  <url>http://www.example.com</url>
 
   <modules>
     <module>server</module>
